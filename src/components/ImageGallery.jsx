@@ -1,17 +1,23 @@
 // ImageGallery.jsx
-import React from 'react';
+import React, { Component } from 'react';
 import ImageGalleryItem from './ImageGalleryItem';
 
-const ImageGallery = ({ images, onImageClick }) => (
-  <ul className="imageGallery">
-    {images.map(image => (
-      <ImageGalleryItem
-        key={image.id}
-        image={image}
-        onImageClick={onImageClick}
-      />
-    ))}
-  </ul>
-);
+class ImageGallery extends Component {
+  render() {
+    const { images, onImageClick } = this.props;
+
+    return (
+      <ul className="imageGallery">
+        {images.map(image => (
+          <ImageGalleryItem
+            key={image.id}
+            image={image}
+            onImageClick={onImageClick}
+          />
+        ))}
+      </ul>
+    );
+  }
+}
 
 export default ImageGallery;
